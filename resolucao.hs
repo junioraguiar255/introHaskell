@@ -36,3 +36,30 @@ testaPrimo n div
   |n==div = True
   |mod n div==0 = False
   |otherwise = testaPrimo n(div+1)
+  
+  
+  -- 2 3 5 7 - 8
+-- 2 3 5 7 11 13 - 16
+
+goldbach::Int->(Int,Int)
+goldbach n = goldbachImpl n (n-1) 2
+
+goldbachImpl::Int->Int->Int->(Int,Int)
+goldbachImpl n primo_ant primo_seq
+  |primo primo_ant == False = goldbachImpl n (primo_ant-1) primo_seq
+  |primo primo_seq == False = goldbachImpl n primo_ant (primo_seq+1)
+  |primo_ant+primo_seq==n == (primo_seq, primo_ant)
+  |(primo_ant+primo_seq)<n = goldbachImpl n primo_ant (primo_seq+1)
+  |otherwise = goldbachImpl n (primo_ant-1) 2
+
+primo :: Int -> Bool
+primo n = ehPrimoImpl n (n-1)
+
+ehPrimoImpl :: Int -> Int -> Bool
+ehPrimoImpl n d
+  |n==2 || n==1 = True
+  |d==1 = True
+  |mod n d == 0 = False
+  |otherwise = ehPrimoImpl n (d-1)
+  
+  
