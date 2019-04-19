@@ -56,7 +56,7 @@ primo :: Int -> Bool
 primo n = ehPrimoImpl n (n-1)
 
 ehPrimoImpl :: Int -> Int -> Bool
-ehPrimoImpl n d
+ehPrimoImpl n dgo
   |n==2 || n==1 = True
   |d==1 = True
   |mod n d == 0 = False
