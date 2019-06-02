@@ -47,4 +47,33 @@ maior (x:xs) |(x > maior xs) = x
 todos_pares :: [Int]->Bool
 todos_pares[] = True
 todos_pares (x:xs) |(mod x 2 == 1) = False
-			       |otherwise = todos_pares xs
+				   |otherwise = todos_pares xs
+				   
+--lista por compreensao - trazer [0,3,6,9,12,15]
+triplo :: Int -> [Int]
+triplo s
+		|s==0=[]
+		|s>=15 = [15]
+		|otherwise = [s] ++ triplo (s + 3)
+
+-- multiplos de 2 e 3 entre 0 e 20
+multiplos :: Int -> Int -> [Int]
+multiplos s count
+		|s==0 = []
+		|count>10 = []
+		|otherwise = [s * count] ++ multiplos s (count + 1)
+
+concat1 :: Int -> [[Int]]
+concat1 s 
+	|s>5 = []
+	|otherwise = [[s]] ++ concat1 (s+1)
+
+concat2 :: (Int,Int) -> (Int,Int) -> [(Int,Int)]
+concat2 (a,b) (c,d) 
+	|b==4 && d==4 = [((a + c),(b + d))] ++ concat2 (a+1 , 1) (c+1 , 1)
+	|a + c == 10 = []
+	|otherwise = [((a + c),(b + d))] ++ concat2 (a , b+1) (c , d+1) 
+
+
+
+
