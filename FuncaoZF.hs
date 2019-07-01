@@ -22,3 +22,4 @@ geraVarios = [x | x<- [1..10]]
 
 geraTupla :: [(Int,Int)]
 geraTupla = [(x,y) | x <- [1..5], y <- [6..10]]
+
