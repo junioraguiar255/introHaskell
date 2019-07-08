@@ -1,0 +1,5 @@
+contaOcorrencias :: [Int] -> Int
+contaOcorrencias [] _ = 0
+contaOcorrencias (cabeca:xs) valor
+    |cabeca == valor = 1 + contaOcorrencias xs valor
+    |otherwise = contaOcorrencias xs valor
