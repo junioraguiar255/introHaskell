@@ -10,3 +10,6 @@ aplicExclusiva f1 f2 l1 l2 = [f2 x y | x<-(filter f1 l1), y<-(filter f1 l2)]
 -- Exemplo: --
 -- >> aplicExclisiva (>2) (+) [1,2,3,4] [9,5,0] = [12,8,13,9]
 
+
+filtraPar :: (t->Bool)->(t->Bool)-> [t]->[t]->[(t,t)]
+filtraPar f1 f2 l1 l2 = [(x,y) | x<-(filter f1 l1), y<-(filter f2 l2)]
